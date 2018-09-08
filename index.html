@@ -13,11 +13,23 @@
 
     <script type="text/babel">
       class App extends React.Component {
+        state = {
+          name: 'Mike',
+          age: 22
+        }
+        handleChange = (e) => {
+          this.setState({
+            name: e.target.value
+          })
+          console.log(this.state)
+        }
         render() {
           return (
             <div className="app-content">
-              <h1>Hey, All!</h1>
-              <p>{ Math.random() * 10 }</p>
+              <h1>Hey, {this.state.name}!</h1>
+              <form onSubmit="">
+                <input type="text" onChange={this.handleChange} />
+              </form>
             </div>
           )
         }
