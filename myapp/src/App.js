@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import Ninjas from './Ninjas';
 import AddNinja from './AddNinja';
 import logo from './logo.svg';
@@ -20,7 +20,20 @@ class App extends Component {
     })
   }
   deleteNinja = (id) => {
-    console.log(id);
+    let ninjas = this.state.ninjas.filter(ninja => {
+      return ninja.id !== id
+    });
+    this.setState({
+      ninjas: ninjas
+    })
+  }
+  componentDidMount() {
+    console.log('component mounted')
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('component updated');
+    console.log(prevProps);
+    console.log(prevState);
   }
   render() {
     return (
