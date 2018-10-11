@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Pokeball from '../pokeball.png';
 import { connect } from 'react-redux';
 
+
 class Home extends Component {
   render() {
     console.log(this.props);
@@ -13,7 +14,7 @@ class Home extends Component {
           <div className="post card" key={post.id}>
             <img src={ Pokeball } alt="A pokeball"/>
             <div className="card-content">
-              <Link to= {'/' + post.id}>
+              <Link to= {'/Post/' + post.id}>
                 <span className="card-title red-text">{post.title}</span>
               </Link>
               <p>{post.body}</p>
@@ -27,6 +28,7 @@ class Home extends Component {
     return (
     <div className="container home">
       <h4 className="center">Home</h4>
+      <button className="btn btn-primary center"><Link className="white-text" to="/Create">Create A Post</Link></button>
       {postList}
     </div>
     )
